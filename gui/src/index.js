@@ -3,12 +3,82 @@ import ReactDOM from 'react-dom';
 import { GoogleMap, LoadScript } from '@react-google-maps/api'
 import { Data } from '@react-google-maps/api';
 // https://react-google-maps-api-docs.netlify.com/
-class MyComponents extends Component {
+
+class APP extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            googleKey: '',
+            zoom: 15
+        };
+    }
+
+    onFormSubmited(formData) {
+        alert('form submitted: ' + JSON.stringify(formData));
+        this.setState(formData)
+    }
+
     render() {
+        return (
+            <div>
+                <div>
+                    <KeyForm onFormSubmited={this.onFormSubmited.bind(this)} />
+                </div>
+                <div>
+                    <MapContainer apiKey={this.state.googleKey} zoom={this.state.zoom} />
+                </div>
+            </div>)
+    }
+}
+
+class KeyForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            googleKey: '',
+            zoom: 15
+        };
+
+        this.handleKeyChanged = this.handleKeyChanged.bind(this);
+        this.handleZoomChanged = this.handleZoomChanged.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleKeyChanged(event) {
+        this.setState({ googleKey: event.target.value });
+    }
+
+    handleZoomChanged(event) {
+        this.setState({ zoom: parseInt(event.target.value) });
+    }
+
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.props.onFormSubmited(this.state);
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>  Google Key:    <input type="text" value={this.state.googleKey} onChange={this.handleKeyChanged} />  </label>
+                <label>  Zoom:    <input type="text" value={this.state.zoom} onChange={this.handleZoomChanged} />  </label>
+                <input type="submit" value="Submit" />
+            </form>
+        );
+    }
+}
+
+class MapContainer extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        console.log('Pepe ' + this.props.apiKey)
         return (
             <LoadScript
                 id="script-loader"
-                googleMapsApiKey="GOOGLE_KEY"
+                googleMapsApiKey={"" + this.props.apiKey + ""}
 
             >
                 <GoogleMap
@@ -17,7 +87,7 @@ class MyComponents extends Component {
                         height: "700px",
                         width: "1000px"
                     }}
-                    zoom={15}
+                    zoom={this.props.zoom}
                     center={{
                         lat: -32.0759594,
                         lng: -60.4665987
@@ -98,6 +168,6 @@ class MyComponents extends Component {
 }
 
 ReactDOM.render(
-    <MyComponents />,
+    <APP />,
     document.getElementById('root')
 );
