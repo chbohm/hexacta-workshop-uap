@@ -2,9 +2,27 @@ import React from 'react';
 import MapContainer from './MapContainer';
 import DataInput from './DataInput'
 import AddressInput from './AddressInput'
-import { Container, Typography, Grid, Button } from '@material-ui/core';
+import { Container, Typography, Grid, Button, Fab, makeStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import ArrowBack from '@material-ui/icons/ArrowBack';
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+  left_fab: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    left: theme.spacing(2),
+  }
+})
+);
+
 
 function Ingresar() {
+  const classes = useStyles();
   const [data, setData] = React.useState(null);
   const [address, setAddress] = React.useState(null);
   const [dataHasValue, setDataHasValue] = React.useState(false);
@@ -19,10 +37,10 @@ function Ingresar() {
     console.log(formData);
   }
 
-  return (
+  return ( // ADD a BACK BUTTON IN ORDER TO GET BACK TO "HOME"
     <Container fixed>
       <Typography variant='h4'>Ingresar datos de los participantes</Typography>
-      <form onSubmit={handleSubmit} style={{ padding: 20 }}>
+      <form onSubmit={handleSubmit} style={{ padding: '20px' }}>
         <Grid
           container
           direction="row"
@@ -45,6 +63,11 @@ function Ingresar() {
         </Grid>
       </form>
       <MapContainer />
+      <Link to={"/home"}>
+        <Fab color="default" aria-label="ArrowBack" className={classes.left_fab}>
+          <ArrowBack />
+        </Fab>
+      </Link>
     </Container>
   );
 }

@@ -5,18 +5,21 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 function Home() {
-    return (
+  return (
     <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Esta será nuestra aplicación hecha en React.js
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Esta será nuestra aplicación hecha en React.js
       </p>
-      <Link to={`/ingresar`}>
-      <Button>Ingresar</Button>
-      </Link>
-    </header>
-  </div>
+        <Link to={`/ingresar`}>
+          <Button variant="contained">Ingresar datos</Button>
+        </Link>
+        <Link to={`/bcra`}>
+          <Button variant="contained">Ver datos BCRA</Button>
+        </Link>
+      </header>
+    </div>
   );
 }
 

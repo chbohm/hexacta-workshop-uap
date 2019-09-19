@@ -1,16 +1,21 @@
 import React from 'react';
 import { GoogleMap, LoadScript, Data } from '@react-google-maps/api'
+import { Typography, Box, makeStyles, Grid } from '@material-ui/core';
 
 function MapContainer() {
-  let apiKey = 'AIzaSyBUYnR2zF2RJvsg5ICLbUZ21DHsmQB6C1g';
+  let apiKey = '';
   let zoom = 15;
+  const [lat, setLat] = React.useState('');
+  const [lng, setLgn] = React.useState('');
 
   const mapOptions = {
-    controlPosition: "TOP_LEFT",
+    // controlPosition: "TOP_LEFT",
     controls: ["Point"],
     drawingMode: "Point", //  "LineString" or "Polygon".
     featureFactory: geometry => {
       console.log(geometry);
+      setLat(geometry.g.lat());
+      setLgn(geometry.g.lng());
     },
     // Type:  boolean
     // If true, the marker receives mouse and touch events. Default value is true.
@@ -70,32 +75,49 @@ function MapContainer() {
   };
 
   return (
-    <LoadScript
-      id="script-loader"
-      googleMapsApiKey={"" + apiKey + ""}
-
-    >
-      <GoogleMap
-        id="data-example"
-        mapContainerStyle={{
-          height: '30vh',
-          width: '35vw',
-          margin: 'auto'
-        }}
-        zoom={zoom}
-        center={{
-          lat: -32.0759594,
-          lng: -60.4665987
-        }}
+    <Box>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
       >
-        <Data
-          onLoad={data => {
-            console.log('data: ', data)
-          }}
-          options={mapOptions}
-        />
-      </GoogleMap>
-    </LoadScript>
+        <Grid item xs={6}>
+          <LoadScript
+            id="script-loader"
+            googleMapsApiKey={"" + apiKey + ""}
+          >
+            <GoogleMap
+              id="data-example"
+              mapContainerStyle={{
+                height: '30vh',
+                width: '35vw',
+                margin: 'auto'
+              }}
+              zoom={zoom}
+              center={{
+                lat: -32.0759594,
+                lng: -60.4665987
+              }}
+            >
+              <Data
+                onLoad={data => {
+                  console.log('data: ', data)
+                }}
+                options={mapOptions}
+              />
+            </GoogleMap>
+          </LoadScript>
+        </Grid>
+        <Grid item xs={6}>
+          {/* <Box style={{ marginLeft: '33%' }}> */}
+            <Typography variant='h4'>Coordenadas</Typography>
+            <Typography variant='h6'>Lat: [{lat}]</Typography>
+            <Typography variant='h6'>Long: [{lng}]</Typography>
+          {/* </Box> */}
+        </Grid>
+      </Grid>
+    </Box>
   )
 }
 

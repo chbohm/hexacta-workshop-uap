@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -26,27 +26,31 @@ export default function AddressInput({ setAddress, hasValue }) {
 
   function handleCalleChange(event) {
     setCalle(event.target.value);
-    handleSetAddress();
   }
 
   function handleNumeroChange(event) {
     setNumero(event.target.value);
-    handleSetAddress();
   }
 
   function handleDeptoChange(event) {
     setDepto(event.target.value);
-    handleSetAddress(); // tiene una leve demora no actualiza el valor sis e toca una sola vez
   }
 
+  useEffect(
+    () => {
+      handleSetAddress();
+    },
+    [calle, numero, depto], //watches over those variables and calls to action
+  );
+
   function handleSetAddress() {
-    // if( calle && numero && depto) {
-    setAddress({
-      calle: calle,
-      numero: numero,
-      depto: depto
-    });
-    // }
+    if (calle && numero && depto) {
+      setAddress({
+        calle: calle,
+        numero: numero,
+        depto: depto
+      });
+    }
   }
 
   hasValue(calle && numero && depto);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -18,38 +18,53 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DataInput({setData, hasValue}) {
+export default function DataInput({ setData, hasValue }) {
   const [name, setName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [id, setId] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [token, setToken] = React.useState('');
   const classes = useStyles();
 
   function handleNameChange(event) {
     setName(event.target.value);
-    handleSetData();
   }
 
   function handleLastNameChange(event) {
     setLastName(event.target.value);
-    handleSetData();
   }
 
   function handleIdChange(event) {
     setId(event.target.value);
-    handleSetData();
   }
 
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handleTokenChange(event) {
+    setToken(event.target.value);
+  }
+
+  useEffect(
+    () => {
+      handleSetData();
+    },
+    [name, lastName, id, email, token], //watches over those variables and calls to action
+  );
+
   function handleSetData() {
-    // if( name && lastName && id) {
+    if (name && lastName && id && email && token) {
       setData({
         name: name,
         lastName: lastName,
-        id: id
+        id: id,
+        email: email
       });
-    // }
+    }
   }
 
-  hasValue(name && lastName && id);
+  hasValue(name && lastName && id && email && token);
 
   return (
     <div className={classes.container}>
@@ -68,6 +83,16 @@ export default function DataInput({setData, hasValue}) {
         <InputLabel htmlFor="id-component">Documento</InputLabel>
         <Input id="id-component" type="number" value={id} onChange={handleIdChange} />
         <FormHelperText>Documento de identidad del participante</FormHelperText>
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="id-component">E-mail</InputLabel>
+        <Input id="id-component" type="email" value={email} onChange={handleEmailChange} />
+        <FormHelperText>Correo electrónico del participante</FormHelperText>
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="id-component">Token</InputLabel>
+        <Input id="id-component" type="text" value={token} onChange={handleTokenChange} />
+        <FormHelperText>Token del participante</FormHelperText>
       </FormControl>
     </div>
   );

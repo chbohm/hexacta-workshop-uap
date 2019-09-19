@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Button from '@material-ui/core/Button';
 import { AppTheme } from './theme';
 import { theme } from './appTheme'
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -10,6 +8,7 @@ import { Box, Typography, AppBar, Toolbar } from '@material-ui/core';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './components/Home';
 import Ingresar from './components/Ingresar'
+import Bcra from './components/Bcra';
 
 // const appTheme = createMuiTheme();
 
@@ -29,6 +28,7 @@ function App() {
             )} />
             <Route path='/home' exact component={Home} />
             <Route path='/ingresar' exact component={Ingresar} />
+            <Route path='/bcra' exact component={Bcra} />
           </Switch>
         </BrowserRouter>
       </Box>
