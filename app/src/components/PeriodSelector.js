@@ -55,7 +55,6 @@ function PeriodSelector() {
             <Input id="end-date-component" type="date" value={endDate} onChange={handleEndDateChange} />
           </Grid>
           <Grid item xs={4}>
-            {/* <Typography variant='h8'>Nombre de usuario</Typography> */}
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="name-component">Nombre de usuario</InputLabel>
               <Input id="name-component" value={name} onChange={handleNameChange} />

@@ -24,6 +24,7 @@ export default function DataInput({ setData, hasValue }) {
   const [id, setId] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [token, setToken] = React.useState('');
+  const [tel, setTel] = React.useState('');
   const classes = useStyles();
 
   function handleNameChange(event) {
@@ -42,6 +43,10 @@ export default function DataInput({ setData, hasValue }) {
     setEmail(event.target.value);
   }
 
+  function handleTelChange(event) {
+    setTel(event.target.value);
+  }
+
   function handleTokenChange(event) {
     setToken(event.target.value);
   }
@@ -50,16 +55,18 @@ export default function DataInput({ setData, hasValue }) {
     () => {
       handleSetData();
     },
-    [name, lastName, id, email, token], //watches over those variables and calls to action
+    [name, lastName, id, email, tel, token], //watches over those variables and calls to action
   );
 
   function handleSetData() {
-    if (name && lastName && id && email && token) {
+    if (name && lastName && id && email && tel && token) {
       setData({
         name: name,
         lastName: lastName,
         id: id,
-        email: email
+        email: email,
+        tel: tel,
+        token: token
       });
     }
   }
@@ -83,6 +90,11 @@ export default function DataInput({ setData, hasValue }) {
         <InputLabel htmlFor="id-component">Documento</InputLabel>
         <Input id="id-component" type="number" value={id} onChange={handleIdChange} />
         <FormHelperText>Documento de identidad del participante</FormHelperText>
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="id-component">Teléfono</InputLabel>
+        <Input id="id-component" type="number" value={tel} onChange={handleTelChange} />
+        <FormHelperText>Telefono del participante</FormHelperText>
       </FormControl>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="id-component">E-mail</InputLabel>

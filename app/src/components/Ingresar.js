@@ -31,7 +31,12 @@ function Ingresar() {
   function handleSubmit(event) {
     event.preventDefault();
     let formData = {
-      data: data,
+      Nombre: data.name,
+      Apellido: data,
+      Documento: data.id,
+      Mail: data.email,
+      Telefono: data.tel,
+      TokenBanco: data.token,
       address: address
     }
     console.log(formData);
