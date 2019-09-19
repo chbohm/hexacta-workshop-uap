@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false, 
+    "anonymousAuthentication": true, 
+    "iisExpress": {
+      "applicationUrl": "http://localhost:1635",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express List": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development List",
+        "Assembly": "D:\\Project\\Internos\\WorkShop-UAP\\back\\Hexacta.WorkShop.Back\\Hexacta.WorkShop.Back.ApiService\\bin\\Debug\\netcoreapp2.2\\Hexacta.WorkShop.Back.Repositories.List.dll",
+        "FullNameClass": "Hexacta.WorkShop.Back.Repositories.List.Insfraestructure.Register",
+        "FullNameClassContext": "Hexacta.WorkShop.Back.Repositories.List.Infraestructure.Conexion"
+      }
+    },
+    
+    "IIS Express Memory": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development Memory",
+        "Assembly": "D:\\Project\\Internos\\WorkShop-UAP\\back\\Hexacta.WorkShop.Back\\Hexacta.WorkShop.Back.ApiService\\bin\\Debug\\netcoreapp2.2\\Hexacta.WorkShop.Back.Repositories.Memory.dll",
+        "FullNameClass": "Hexacta.WorkShop.Back.Repositories.Memory.Infraestructure.Register",
+        "FullNameClassContext": "Hexacta.WorkShop.Back.Repositories.Memory.Infraestructure.Conexion"
+      }
+    },
+    "IIS Express MySql": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Assembly": "D:\\Project\\Internos\\WorkShop-UAP\\back\\Hexacta.WorkShop.Back\\Hexacta.WorkShop.Back.ApiService\\bin\\Debug\\netcoreapp2.2\\Hexacta.WorkShop.Back.Repositories.MySql.dll",
+        "FullNameClass": "Hexacta.WorkShop.Back.Repositories.MySql.Infraestructura.Register",
+        "FullNameClassContext": "Hexacta.WorkShop.Back.Repositories.MySql.Infraestructura.Conexion"
+      }
+    }
+  }
+}
