@@ -1,0 +1,64 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false, 
+    "anonymousAuthentication": true, 
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5569",
+      "sslPort": 44314
+    }
+  },
+  "profiles": {
+    "IIS Express List": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development List",
+        "Assembly": "C:\\Users\\cbenito\\source\\repos\\Hexacta.WorkShop.Back.ApiService\\bin\\Debug\\netcoreapp2.1\\Hexacta.WorkShop.Back.Repositories.List.dll",
+        "FullNameClass": "Hexacta.WorkShop.Back.Repositories.List.Insfraestructure.Register",
+        "FullNameClassContext": "Hexacta.WorkShop.Back.Repositories.List.Infraestructure.Conexion"
+      }
+    },
+
+    "IIS Express Memory": {
+      "commandName": "IISExpress",
+      "launchBrowser": true
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development Memory",
+        "Assembly": "C:\\Users\\cbenito\\source\\repos\\Hexacta.WorkShop.Back.ApiService\\bin\\Debug\\netcoreapp2.1\\Hexacta.WorkShop.Back.Repositories.Memory.dll",
+        "FullNameClass": "Hexacta.WorkShop.Back.Repositories.Memory.Infraestructure.Register",
+        "FullNameClassContext": "Hexacta.WorkShop.Back.Repositories.Memory.Infraestructure.Conexion"
+      }
+    },
+    "IIS Express MySql": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/home",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Assembly": "C:\\Users\\cbenito\\source\\repos\\Hexacta.WorkShop.Back.ApiService\\bin\\Debug\\netcoreapp2.1\\Hexacta.WorkShop.Back.Repositories.MySql.dll",
+        "FullNameClass": "Hexacta.WorkShop.Back.Repositories.MySql.Infraestructura.Register",
+        "FullNameClassContext": "Hexacta.WorkShop.Back.Repositories.MySql.Infraestructura.Conexion"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Hexacta.WorkShop.Back.ApiService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
