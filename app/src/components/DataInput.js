@@ -60,7 +60,7 @@ export default function DataInput({ setData, hasValue }) {
 
   function handleSetData() {
     if (name && lastName && id && email && tel && token) {
-      setData({
+      setData({ //agregar user
         name: name,
         lastName: lastName,
         id: id,

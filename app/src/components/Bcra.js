@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const options = {
   title: {
-    text: 'My chart'
+    text: 'Banco'
   },
   series: [{
     name: 'Precio del Dolar',

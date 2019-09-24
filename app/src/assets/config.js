@@ -1,10 +1,10 @@
 let config = {
     bcraToken: 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDAzNDYxOTksInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJkYW5pcGFjaGVjbzA3QGdtYWlsLmNvbSJ9.AJUzfhsPwPbjgElzqY1LmmzYtlv-AA7u7HeE5cuIJB8Fz9df9kAllIkiVmcjF7xyvdE0dm6_lHWLBi8sKrhprg',
     bcraApi: 'https://api.estadisticasbcra.com/usd_of',
-    backendApi: 'http://192.168.128.227:1635/api',
+    backendApi: 'http://localhost:1635/api',
     backendHome: '/home',
-    banckendRequest:'/api/consulta/{mail}/cotizacion',
-    
+    backendRequest:'/cotizacion',
+    backendPost: '/inversor'    
 }
 
 module.exports = config;

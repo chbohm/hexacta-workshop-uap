@@ -4,7 +4,7 @@ import { Typography, Box, makeStyles, Grid } from '@material-ui/core';
 
 function MapContainer() {
   let apiKey = '';
-  let zoom = 15;
+  let zoom = 45;
   const [lat, setLat] = React.useState('');
   const [lng, setLgn] = React.useState('');
 
@@ -96,7 +96,7 @@ function MapContainer() {
               }}
               zoom={zoom}
               center={{
-                lat: -32.0759594,
+                lat: -62.0759594,
                 lng: -60.4665987
               }}
             >

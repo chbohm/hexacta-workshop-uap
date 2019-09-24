@@ -5,6 +5,7 @@ import AddressInput from './AddressInput'
 import { Container, Typography, Grid, Button, Fab, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import config from '../assets/config';
 
 const useStyles = makeStyles(theme => ({
   fab: {
@@ -32,13 +33,25 @@ function Ingresar() {
     event.preventDefault();
     let formData = {
       Nombre: data.name,
-      Apellido: data,
+      Apellido: data.lastName,
       Documento: data.id,
       Mail: data.email,
       Telefono: data.tel,
-      TokenBanco: data.token,
-      address: address
+      TokenBanco: data.token
+      // ,
+      // address: address
     }
+    // 'http://localhost:1635/api/inversor/clbenito'
+    fetch(config.backendApi + config.backendPost, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+  }).then((response) => {
+      console.log(response);
+  });
+    
     console.log(formData);
   }
 

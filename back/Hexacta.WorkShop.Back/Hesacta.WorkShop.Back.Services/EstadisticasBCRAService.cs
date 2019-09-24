@@ -2,6 +2,7 @@
 using Hexacta.WorkShop.Back.Model.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.Caching;
@@ -58,6 +59,15 @@ namespace Hexacta.WorkShop.Back.Services
             }
 
             return null;
+        }
+
+        public IEnumerable<Cotizacion> GetCotizacions(string usuario, DateTime? desde, DateTime? hasta)
+        {
+            var result = GetCotizacions(usuario);
+
+            return result
+                     .Where(c => (!desde.HasValue || c.Fecha >= desde) 
+                     && (!hasta.HasValue || c.Fecha <= hasta));
         }
     }
 }
