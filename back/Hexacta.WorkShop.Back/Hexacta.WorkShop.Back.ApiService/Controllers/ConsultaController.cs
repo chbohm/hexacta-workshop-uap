@@ -36,8 +36,7 @@ namespace Hexacta.WorkShop.Back.ApiService.Controllers
 
         [HttpGet]
         [Route("")]
-
-        // De esta manera podemos enviar valores faltantes
+        // De esta manera podemos enviar valores opcionales.
         // Ejemplo: ../api/cotizacion?usuario=cbenito&desde=2019-08-1
         //          ../api/cotizacion?usuario=cbenito&desde=2019-08-1&hasta=2019-09-17
         //          ../api/cotizacion?usuario=cbenito&hasta=2019-08-1
